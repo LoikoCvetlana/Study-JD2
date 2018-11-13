@@ -1,6 +1,5 @@
 package com.sportoras.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -8,22 +7,16 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @ToString(exclude = "user")
 @Data
 @EqualsAndHashCode(of = "id")
-@AllArgsConstructor(staticName = "of")
 @NoArgsConstructor
 @Entity
 @javax.persistence.Table(name = "user_dateil", schema = "oraz_storage")
-public class UserDateil {
-
-    @Id
-    @Column(name = "user_id")
-    private Long id;
+public class UserDateil extends BaseEntity<Long> {
 
     private String company;
 
@@ -38,10 +31,18 @@ public class UserDateil {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private Client client;
+    private User user;
 
-    public UserDateil(String company, String workPhone, long client) {
+    public UserDateil(String company, String workPhone, User user) {
         this.company = company;
         this.workPhone = workPhone;
+    }
+
+    public UserDateil(String company, String workPhone, String personalPhone, String otherInformation, User user) {
+        this.company = company;
+        this.workPhone = workPhone;
+        this.personalPhone = personalPhone;
+        this.otherInformation = otherInformation;
+        this.user = user;
     }
 }

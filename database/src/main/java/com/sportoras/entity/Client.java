@@ -9,7 +9,6 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
 @ToString(exclude = {"rewiew"})
@@ -18,17 +17,14 @@ import java.time.LocalDate;
 @Data
 @Builder
 @Entity
-@DiscriminatorValue("Пользователь")
+@DiscriminatorValue("Users")
 public class Client extends User {
-
-    @OneToOne(mappedBy = "client")
-    private UserDateil userDateil;
 
     @Column(name = "registration_date")
     private LocalDate registrationDate;
 
-    public Client(String email, String password, LocalDate registrationDate, FullName of) {
-        super(email, password, of);
+    public Client(String email, String password, LocalDate registrationDate, FullName fullName) {
+        super(email, password, fullName);
         this.registrationDate = registrationDate;
 
     }

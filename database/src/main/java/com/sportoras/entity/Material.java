@@ -40,9 +40,10 @@ public class Material extends BaseEntity<Long> {
     )
     private List<Product> products = new ArrayList<>();
 
-    public Material(String name, String description) {
+    public Material(String name, String description, Boolean availability) {
         this.name = name;
         this.description = description;
+        this.availability = availability;
     }
 }
 

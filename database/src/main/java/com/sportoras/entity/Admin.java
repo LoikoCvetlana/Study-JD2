@@ -15,13 +15,13 @@ import javax.persistence.Entity;
 @Data
 @Builder
 @Entity
-@DiscriminatorValue("Администратор")
+@DiscriminatorValue("Admins")
 public class Admin extends User {
 
     private String position;
 
-    public Admin(String email, String password, String position, FullName of) {
-        super(email, password, of);
+    public Admin(String email, String password, String position, FullName fullName) {
+        super(email, password, fullName);
         this.position = position;
     }
 }

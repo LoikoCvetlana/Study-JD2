@@ -1,7 +1,9 @@
 package com.sportoras.service;
 
-import com.sportoras.dao.UserDao;
-import com.sportoras.dto.UserFullDto;
+import com.sportoras.connection.ConnectionManager;
+import com.sportoras.dao.userDao.UserDao;
+import com.sportoras.dao.userDao.UserDaoImpl;
+import com.sportoras.entity.User;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -10,19 +12,9 @@ public class UserService {
 
     private static final UserService INSTANCE = new UserService();
 
-    public UserFullDto findById(Long userId) {
-        return UserDao.getInstance().findById(userId)
-                .map(it -> UserFullDto.builder()
-                        .id(it.getId())
-                        .role(it.getRole().getDescription())
-                        .name(it.getName())
-                        .lastname(it.getLastname())
-                        .registrationDate(it.getRegistrationDate())
-                        .email(it.getEmail())
-                        .organization(it.getOrganization())
-                        .otherInformation(it.getOtherInformation())
-                        .build())
-                .orElse(null);
+    public User findById(Long userId) {
+        UserDao userDao = UserDaoImpl.getInstance();
+        return userDao.find(ConnectionManager.getSession(), 1L);
     }
 
     public static UserService getInstance() {
