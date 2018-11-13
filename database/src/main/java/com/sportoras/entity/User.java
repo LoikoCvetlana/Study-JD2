@@ -11,6 +11,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Data
@@ -32,10 +33,13 @@ public class User extends BaseEntity<Long> {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    public User(String email, String password, FullName of) {
+    @OneToOne(mappedBy = "user")
+    private UserDateil userDateil;
+
+    public User(String email, String password, FullName fullName) {
         this.email = email;
         this.password = password;
-        this.fullName = of;
+        this.fullName = fullName;
     }
 
     public User(String email, String password) {

@@ -1,6 +1,5 @@
 package com.sportoras.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +14,6 @@ import java.time.LocalDate;
 
 @Data
 @EqualsAndHashCode(of = "id")
-@AllArgsConstructor(staticName = "of")
 @ToString(exclude = "user")
 @NoArgsConstructor
 @Builder
@@ -31,7 +29,9 @@ public class Rewiew extends BaseEntity<Long> {
 
     private LocalDate date;
 
-    public Rewiew(String text) {
+    public Rewiew(User user, String text, LocalDate date) {
+        this.user = user;
         this.text = text;
+        this.date = date;
     }
 }

@@ -44,4 +44,10 @@ public class Product extends BaseEntity<Long> {
         this.name = name;
     }
 
+    public Product(String name, String article, String picture, double value) {
+        this.name = name;
+        this.article = article;
+        this.picture = picture;
+        this.value = value;
+    }
 }
