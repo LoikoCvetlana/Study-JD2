@@ -11,4 +11,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     List<User> findAllByUserDateilCompany(String compony);
 
+    User findUserById(Long id);
+
 }

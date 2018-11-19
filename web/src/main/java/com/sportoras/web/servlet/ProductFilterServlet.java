@@ -1,9 +1,11 @@
-package com.sportoras.servlet;
+package com.sportoras.web.servlet;
 
-import com.sportoras.dto.ProductDtoFilter;
-import com.sportoras.entity.Product;
-import com.sportoras.service.ProductService;
-import com.sportoras.util.JspPathUtil;
+import com.sportoras.database.entity.Product;
+import com.sportoras.service.dto.ProductDtoFilter;
+import com.sportoras.service.service.ProductService;
+import com.sportoras.web.utilit.ContextHolder;
+import com.sportoras.web.utilit.JspPathUtil;
+import org.springframework.data.domain.PageRequest;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,11 +18,12 @@ import java.util.List;
 @WebServlet("/product-filter")
 public class ProductFilterServlet extends HttpServlet {
 
+    private ProductService productService = ContextHolder.getContext().getBean("productService", ProductService.class);
     private ProductDtoFilter productDto;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> producta = ProductService.getInstance().filtrProduct(productDto.getProductName(), productDto.getValue(), productDto.getLimit(), productDto.getOffset());
+        List<Product> producta = productService.filterProduct(productDto.getProductName(), productDto.getMinValue(), productDto.getMaxValue(), productDto.getPageable());
         getServletContext()
                 .getRequestDispatcher(JspPathUtil.get("products"))
                 .forward(req, resp);
@@ -30,9 +33,9 @@ public class ProductFilterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductDtoFilter productDto = ProductDtoFilter.builder()
                 .productName(req.getParameter("name"))
-                .value(Double.valueOf(req.getParameter("value")))
-                .limit(Integer.valueOf(req.getParameter("limit")))
-                .offset(Integer.valueOf(req.getParameter("offset")))
+                .minValue(Double.valueOf(req.getParameter("minValue")))
+                .maxValue(Double.valueOf(req.getParameter("maxValue")))
+                .pageable(PageRequest.of(0, 1))
                 .build();
 
         resp.sendRedirect("/product-filtered");

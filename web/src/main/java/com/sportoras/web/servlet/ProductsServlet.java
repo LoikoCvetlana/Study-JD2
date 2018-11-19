@@ -1,8 +1,9 @@
-package com.sportoras.servlet;
+package com.sportoras.web.servlet;
 
-import com.sportoras.entity.Product;
-import com.sportoras.service.ProductService;
-import com.sportoras.util.JspPathUtil;
+import com.sportoras.database.entity.Product;
+import com.sportoras.service.service.ProductService;
+import com.sportoras.web.utilit.ContextHolder;
+import com.sportoras.web.utilit.JspPathUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,9 +16,11 @@ import java.util.List;
 @WebServlet("/products")
 public class ProductsServlet extends HttpServlet {
 
+    private ProductService productService = ContextHolder.getContext().getBean("productService", ProductService.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> products = ProductService.getInstance().findAll();
+        List<Product> products = productService.findAll();
         req.setAttribute("products", products);
         getServletContext()
                 .getRequestDispatcher(JspPathUtil.get("products"))

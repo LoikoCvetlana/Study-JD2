@@ -21,7 +21,7 @@ public class MaterialService {
     private final MaterialRepository materialRepository;
 
     @Transactional
-    public Optional<Material> findById(Long productId) {
+    public Optional<Material> findById(Long materialId) {
         return materialRepository.findById(1L);
     }
 
@@ -31,7 +31,7 @@ public class MaterialService {
     }
 
     @Transactional
-    public List<Material> filtrProduct(String name, Double value, int limit, int offset) {
+    public List<Material> filtrMaterial() {
         return materialRepository.findAllByAvailability(true);
     }
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Pageable;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class ProductDtoFilter {
 
     private String productName;
-    private Double value;
-    private int limit;
-    private int offset;
+    private double minValue;
+    private double maxValue;
+    private Pageable pageable;
 }

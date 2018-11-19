@@ -1,4 +1,4 @@
-package com.sportoras.web.utilW;
+package com.sportoras.web.utilit;
 
 import com.sportoras.service.configuration.ServiceConfiguration;
 import lombok.experimental.UtilityClass;

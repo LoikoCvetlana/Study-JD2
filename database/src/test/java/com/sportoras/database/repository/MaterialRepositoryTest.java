@@ -12,9 +12,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = TestConfiguration.class)
@@ -34,15 +38,34 @@ public class MaterialRepositoryTest {
     }
 
     @Test
-    public void check() {
-        materialRepository.findAll().forEach(System.out::println);
-    }
-
-    @Test
     public void checkFindByName() {
         Material interstellar = materialRepository.findByName("Ткань");
         System.out.println(interstellar);
         Assert.assertNotNull(interstellar);
+    }
+
+    @Test
+    public void checkSave() {
+        Material material = Material.builder()
+                .name("Meryl")
+                .description("Description")
+                .availability(true)
+                .build();
+        materialRepository.save(material);
+        Long savedId = material.getId();
+        assertNotNull(savedId);
+    }
+
+    @Test
+    public void checkFindAll() {
+        List<Material> materials = materialRepository.findAll();
+        assertThat(materials, hasSize(3));
+    }
+
+    @Test
+    public void checkFindById() {
+        Optional<Material> material = materialRepository.findById(1L);
+        assertNotNull(material);
     }
 
     @Test

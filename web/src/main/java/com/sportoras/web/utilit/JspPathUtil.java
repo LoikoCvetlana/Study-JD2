@@ -1,4 +1,4 @@
-package com.sportoras.web.utilW;
+package com.sportoras.web.utilit;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

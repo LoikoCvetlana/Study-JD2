@@ -7,7 +7,7 @@
 <body>
 <%@include file="header.jsp" %>
 <div>
-    <c:forEach items="${requestScope.products}" var="product">
+    <c:forEach items="${requestScope.products}" var="products">
         <br>
         <img src="${product.picture}" width="120"><br>
         <a href="${pageContext.request.contextPath}/product-info?id=${product.id}"> ${product.name} ${product.article}</a><br>
