@@ -35,6 +35,7 @@ CREATE TABLE rewiew (
 );
 
 CREATE TABLE user_dateil (
+id      BIGSERIAL PRIMARY KEY,
   user_id           BIGINT REFERENCES "user" (id),
   company           CHARACTER VARYING(128),
   work_phone        CHARACTER VARYING(15),
@@ -43,8 +44,9 @@ CREATE TABLE user_dateil (
 );
 
 CREATE TABLE product_material (
-  product_id  BIGINT REFERENCES product (id),
-  material_id BIGINT REFERENCES material (id)
+  product_id  BIGINT NOT NULL ,
+  material_id BIGINT NOT NULL ,
+  PRIMARY KEY (product_id, material_id)
 );
 
 
