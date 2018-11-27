@@ -1,9 +1,7 @@
 package com.sportoras.web.controller;
 
 import com.sportoras.database.entity.Product;
-import com.sportoras.service.dto.ProductFullDto;
 import com.sportoras.service.service.ProductService;
-import com.sportoras.web.utilit.ContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
