@@ -9,30 +9,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ProductService {
 
-    @Autowired
-    private ProductService productService;
-
     private final ProductRepository productRepository;
 
-    @Transactional
-    public Optional<Product> findProductById(Long materialId) {
-        return productRepository.findById(1L);
+    public Product findProductById(Long productId) {
+        return productRepository.findProductById(productId);
     }
 
-    @Transactional
     public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    @Transactional
     public List<Product> filterProduct(String name, double minValue, double maxValue, Pageable pageable) {
         return productRepository.findAllByNameBetweenOrderByValue(name, minValue, maxValue, pageable);
     }
+
+//    public List<ProductFullDto> allProducts() {
+//        return productRepository.findAll().stream()
+//                .map(it -> new ProductFullDto(it.getId(), it.getName(), it.getArticle(), it.getPicture(), it.getValue(), it.getMaterials()))
+//                .collect(Collectors.toList());
+//    }
 }

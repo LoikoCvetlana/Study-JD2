@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<!--<div th:insert="~{headers::language}">-->
+
+        <div th:each="product: ${products}">
+            <span id="name" th:text="${product.name()}">Product Name</span>
+            <span id="article" th:text="${product.article()}">Product article</span>
+            <!--<img th:src="${product.picture()}" th:alt="${product.picture()}">-->
+
+            <!--<span id="picture" th:text="${product.picture()}">Product picture</span>-->
+            <!--<span th:each="materials: ${product.materials}"-->
+                  <!--id="materials" th:text="${product.materials()}">Product materials</span> >-->
+            <!--</span>-->
+        </div>
+</body>
+</html>

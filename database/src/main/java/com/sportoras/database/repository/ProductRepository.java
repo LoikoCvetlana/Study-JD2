@@ -10,6 +10,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     Product findByName(String name);
 
+    Product findProductById(Long id);
+
     List<Product> findAllByValueBetween(double minValue, double maxValue);
 
     List<Product> findAllByNameBetweenOrderByValue(String name, double minValue, double maxValue, Pageable pageable);

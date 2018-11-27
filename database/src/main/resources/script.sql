@@ -43,18 +43,19 @@ id      BIGSERIAL PRIMARY KEY,
   other_information CHARACTER VARYING(512)
 );
 
+
 CREATE TABLE product_material (
-  product_id  BIGINT NOT NULL ,
-  material_id BIGINT NOT NULL ,
+  product_id  BIGINT REFERENCES product (id),
+  material_id BIGINT REFERENCES material (id),
   PRIMARY KEY (product_id, material_id)
 );
 
 
-INSERT INTO "user" (role, password, name, lastname, registration_date, email) VALUES
+INSERT INTO oraz_storage."user" (role, password, name, lastname, registration_date, email) VALUES
   ('Администратор', '111', 'Ирина', 'Пширкова', '2018-09-08', 'infooraz@gmail.com'),
   ('Пользователь', '222', 'Светлана', 'Лойко', '2018-09-11', 'tumibug@gmail.com');
 
-INSERT INTO material (name, description, availability) VALUES
+INSERT INTO oraz_storage.material (name, description, availability) VALUES
 
   ('Meryl',
    'Материал создан крупной испанской компанией «Нилстар» (NYLSTAR SpA). Этот материал является уникальной разновидностью полиамида. '
@@ -101,18 +102,16 @@ WR – водоотталкивающая пропитка;',
    'спортивной формы практически любого назначения. Подходит для изготовления футбольной, баскетбольной, хоккейной формы и не только.',
    TRUE);
 
-INSERT INTO product (name, article, picture, value, material_id) VALUES
+INSERT INTO oraz_storage.product (name, article, picture, value) VALUES
   ('Костюм спортивный', 'KP30',
    'http://com.sportoras.com/wp-content/uploads/2017/10/paradnye-kostjumy-11-red-624x945.jpg',
-   144.00, 2),
+   144.00),
   ('Костюм спортивный', 'KP35', 'http://com.sportoras.com/wp-content/uploads/2018/04/img_6475-7-1-small-624x882.jpg',
-   150.00, 2),
-  ('Костюм спортивный', 'KP20', 'http://com.sportoras.com/wp-content/uploads/2016/08/h62.jpg', 120.00, 3),
+   150.00),
+  ('Костюм спортивный', 'KP20', 'http://com.sportoras.com/wp-content/uploads/2016/08/h62.jpg', 120.00),
   ('Костюм тренировочный', 'FB15',
    'http://com.sportoras.com/wp-content/uploads/2018/04/img_6491-10-1-small-624x882.jpg',
-   108.00, 4),
-  ('Форма игровая', 'GS8', 'http://com.sportoras.com/wp-content/uploads/2018/04/img_6581-24-1-small-624x882.jpg', 64.20,
-   5),
-  ('Форма игровая', 'GS6', 'http://com.sportoras.com/wp-content/uploads/2013/09/img_1370-kopyja1-624x935.jpg', 60.00,
-   1),
-  ('Жилет', 'WG10', 'http://com.sportoras.com/wp-content/uploads/2016/08/wg1021.jpg', 64.00, 3);
+   108.00),
+  ('Форма игровая', 'GS8', 'http://com.sportoras.com/wp-content/uploads/2018/04/img_6581-24-1-small-624x882.jpg', 64.20),
+  ('Форма игровая', 'GS6', 'http://com.sportoras.com/wp-content/uploads/2013/09/img_1370-kopyja1-624x935.jpg', 60.00),
+  ('Жилет', 'WG10', 'http://com.sportoras.com/wp-content/uploads/2016/08/wg1021.jpg', 64.00);

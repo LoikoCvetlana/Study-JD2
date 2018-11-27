@@ -20,17 +20,14 @@ public class MaterialService {
 
     private final MaterialRepository materialRepository;
 
-    @Transactional
     public Optional<Material> findById(Long materialId) {
         return materialRepository.findById(1L);
     }
 
-    @Transactional
     public List<Material> findAll() {
         return materialRepository.findAll();
     }
 
-    @Transactional
     public List<Material> filtrMaterial() {
         return materialRepository.findAllByAvailability(true);
     }
