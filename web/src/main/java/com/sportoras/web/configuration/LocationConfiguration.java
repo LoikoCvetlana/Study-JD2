@@ -14,7 +14,7 @@ import java.util.Locale;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 @Configuration
-public class LocationConfig implements WebMvcConfigurer {
+public class LocationConfiguration implements WebMvcConfigurer {
 
     @Bean
     public MessageSource messageSource() {

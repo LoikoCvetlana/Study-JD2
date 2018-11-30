@@ -2,6 +2,7 @@ package com.sportoras.web.utilit;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.experimental.UtilityClass;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JspPathUtil {

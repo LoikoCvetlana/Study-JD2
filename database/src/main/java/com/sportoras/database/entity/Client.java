@@ -26,6 +26,6 @@ public class Client extends User {
     public Client(String email, String password, LocalDate registrationDate, FullName fullName) {
         super(email, password, fullName);
         this.registrationDate = registrationDate;
-
     }
+
 }

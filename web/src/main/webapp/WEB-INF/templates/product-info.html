@@ -7,13 +7,16 @@
 <body>
 <!--<div th:insert="~{headers::language}">-->
 
-        <div>
-            <span id="name" th:text="${product.name()}">Product Name</span>
-            <span id="article" th:text="${product.article()}">Product article</span>
-            <!--<span id="picture" th:img="${product.picture()}">Product picture</span>-->
-            <!--<span th:each="materials: ${product.materials}"-->
-                  <!--id="materials" th:text="${product.materials()}">Product materials <br></span> >-->
-        </div>
+<div>
+    <p><b>Наименование: </b> <span id="name" th:text="${product.name}"></span>
+        <span id="article" th:text="${product.article}"> Product Name</span></p>
+
+    <p><b>Стоимость за единицу (с НДС): </b> <span id="value" th:text="${product.value}">Product Value</span></p>
+
+    <p><b>Фото: </b><br><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="300"></p>
+
+    <p th:each="material: ${materials}" th:text="${material.name}">material</p>
+
 
 </div>
 </body>

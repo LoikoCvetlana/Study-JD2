@@ -52,8 +52,8 @@ CREATE TABLE product_material (
 
 
 INSERT INTO oraz_storage."user" (role, password, name, lastname, registration_date, email) VALUES
-  ('Администратор', '111', 'Ирина', 'Пширкова', '2018-09-08', 'infooraz@gmail.com'),
-  ('Пользователь', '222', 'Светлана', 'Лойко', '2018-09-11', 'tumibug@gmail.com');
+  ('Admin', '111', 'Ирина', 'Пширкова', '2018-09-08', 'infooraz@gmail.com'),
+  ('User', '222', 'Светлана', 'Лойко', '2018-09-11', 'tumibug@gmail.com');
 
 INSERT INTO oraz_storage.material (name, description, availability) VALUES
 

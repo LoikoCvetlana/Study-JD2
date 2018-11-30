@@ -36,6 +36,9 @@ public class User extends BaseEntity<Long> {
     @OneToOne(mappedBy = "user")
     private UserDateil userDateil;
 
+    @Column(name = "Role", insertable = false, updatable = false)
+    private String Role;
+
     public User(String email, String password, FullName fullName) {
         this.email = email;
         this.password = password;
