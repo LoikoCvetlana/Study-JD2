@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class Product extends BaseEntity<Long> {
 
     private String picture;
 
-    private double value;
+    private BigDecimal value;
 
     @ManyToMany
     @JoinTable(name = "product_material", schema = "oraz_storage",
@@ -44,7 +45,7 @@ public class Product extends BaseEntity<Long> {
         this.name = name;
     }
 
-    public Product(String name, String article, String picture, double value) {
+    public Product(String name, String article, String picture, BigDecimal value) {
         this.name = name;
         this.article = article;
         this.picture = picture;

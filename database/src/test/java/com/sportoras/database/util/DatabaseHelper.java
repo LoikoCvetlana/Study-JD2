@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Component
@@ -66,13 +67,13 @@ public class DatabaseHelper {
         entityManager.persist(new Rewiew(rcop, "Boo", LocalDate.now()));
 
         entityManager.persist(new Product("Костюм спортивный парадный", "КР15",
-                "http://sportoras.com/wp-content/uploads/2015/01/kr15-624x936.jpg", 108.00));
+                "http://sportoras.com/wp-content/uploads/2015/01/kr15-624x936.jpg", BigDecimal.valueOf(108.00)));
         entityManager.persist(new Product("Игровая форма", "КР14",
-                "http://sportoras.com/wp-content/uploads/2015/01/kr14-624x936.jpg", 60.00));
+                "http://sportoras.com/wp-content/uploads/2015/01/kr14-624x936.jpg", BigDecimal.valueOf(60.00f)));
         entityManager.persist(new Product("Костюм спортивный парадный", "КР32",
-                "http://sportoras.com/wp-content/uploads/2017/10/kostjumy-10-red1-624x964.jpg", 132.00));
+                "http://sportoras.com/wp-content/uploads/2017/10/kostjumy-10-red1-624x964.jpg", BigDecimal.valueOf(132.00f)));
         entityManager.persist(new Product("Костюм спортивный парадный", "КР35",
-                "http://sportoras.com/wp-content/uploads/2018/04/img_6475-7-1-small-624x882.jpg", 150.00));
+                "http://sportoras.com/wp-content/uploads/2018/04/img_6475-7-1-small-624x882.jpg", BigDecimal.valueOf(150.00f)));
 
 
         entityManager.getTransaction().commit();

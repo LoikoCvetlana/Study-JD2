@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,10 +51,10 @@ public class ProductService {
                         .name(productCreateDto.getName())
                         .article(productCreateDto.getArticle())
                         .picture(productCreateDto.getPicture())
-                        .value(productCreateDto.getValue())
+                        .value(BigDecimal.valueOf(productCreateDto.getValue()))
 //                        .materials(Arrays.asList())
                         .build());
 
-        return new ProductFullDto(savedProduct.getId(), savedProduct.getName(), savedProduct.getArticle(), savedProduct.getPicture(),savedProduct.getValue(), savedProduct.getMaterials() );
+        return new ProductFullDto(savedProduct.getId(), savedProduct.getName(), savedProduct.getArticle(), savedProduct.getPicture(), savedProduct.getValue().doubleValue(), savedProduct.getMaterials());
     }
 }

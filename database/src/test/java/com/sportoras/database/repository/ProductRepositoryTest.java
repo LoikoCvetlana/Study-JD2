@@ -13,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -56,13 +57,15 @@ public class ProductRepositoryTest {
 
     @Test
     public void checkSave() {
+
         Product product = Product.builder()
                 .name("Test")
                 .picture("Test")
                 .article("13")
-                .value(14.2)
+                .value(BigDecimal.valueOf(14.2))
 //                .materials(Arrays.asH(Material.builder().availability(true).description("description").name("Nrfym")))
                 .build();
+        System.out.println(product.getMaterials());
         productRepository.save(product);
         Long savedId = product.getId();
         assertNotNull(savedId);

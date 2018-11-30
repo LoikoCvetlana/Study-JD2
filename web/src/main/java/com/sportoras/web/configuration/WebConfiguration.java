@@ -8,6 +8,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.sportoras.web.controller")
-@Import(value = {LocationConfiguration.class, ThymeleafConfiguration.class})
+@Import(value = {SecurityConfiguration.class, LocationConfiguration.class, ThymeleafConfiguration.class})
 public class WebConfiguration {
 }
