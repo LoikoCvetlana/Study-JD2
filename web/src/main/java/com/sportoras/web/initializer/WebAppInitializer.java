@@ -9,21 +9,22 @@ import javax.servlet.ServletRegistration;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
+
     private static final String SERVLET_MAPPING = "/";
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{ServiceConfiguration.class};
+        return new Class[] {DatabaseConfiguration.class, ServiceConfiguration.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{WebConfiguration.class};
+        return new Class[] {WebConfiguration.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{SERVLET_MAPPING};
+        return new String[] {SERVLET_MAPPING};
     }
 
     @Override
