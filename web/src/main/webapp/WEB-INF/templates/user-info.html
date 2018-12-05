@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User information</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+<div>
+    <br>
+    <p><span id="role" th:text="${user.role}">Role</span></p>
+    <p><span id="registrationDate" th:text="${user.registrationDate}">Registration Date</span></p>
+    <p><span id="email" th:text="${user.email}">Email</span> </p>
+    <p><span id="fullName" th:text="${user.fullName.name}+${user.fullName.lastname}">Full Name</span></p>
+    <p><span id="phone" th:text="${user.userDateil.phone}">Phone Number</span></p>
+    <p><span id="otherInformation" th:text="${user.userDateil.otherInformation}">Other Information</span></p>
+    <p><span id="company" th:text="${user.userDateil.company}">Company</span> <br></p>
+    <p><span id="position" th:text="${user.position}">Position Date</span></p>
+</div>
+</body>
+</html>

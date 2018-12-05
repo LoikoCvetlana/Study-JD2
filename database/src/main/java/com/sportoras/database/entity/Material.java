@@ -38,6 +38,7 @@ public class Material extends BaseEntity<Long> {
             joinColumns = @JoinColumn(name = "material_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
+
     private List<Product> products = new ArrayList<>();
 
     public Material(String name, String description, Boolean availability) {

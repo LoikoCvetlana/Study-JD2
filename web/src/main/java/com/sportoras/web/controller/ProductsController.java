@@ -1,9 +1,10 @@
 package com.sportoras.web.controller;
 
+import com.sportoras.database.entity.Material;
 import com.sportoras.database.entity.Product;
-import com.sportoras.service.dto.ProductBasicDto;
-import com.sportoras.service.dto.ProductCreateDto;
-import com.sportoras.service.dto.ProductDtoFilter;
+import com.sportoras.service.dto.productDto.ProductBasicDto;
+import com.sportoras.service.dto.productDto.ProductCreateDto;
+import com.sportoras.service.dto.productDto.ProductDtoFilter;
 import com.sportoras.service.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,19 +43,19 @@ public class ProductsController {
     @PostMapping("/product-save")
     public String saveNewProduct(ProductCreateDto productCreateDto) {
         productService.saveProduct(productCreateDto);
-        return "/product-info?id="+ productCreateDto.getId();
+        return "redirect:/products";
     }
 
-    @GetMapping("/product-filter")
-    // TODO: 30.11.2018  
-    public String openProductFilter(Model model) {
-        model.addAttribute("productDtoFilter", new ProductDtoFilter());
-        return "/products";
-    }
+//    @GetMapping("/product-filter")
+//    // TODO: 30.11.2018
+//    public String openProductFilter(Model model) {
+//        model.addAttribute("productDtoFilter", new ProductDtoFilter());
+//        return "/products";
+//    }
 
-    @PostMapping("/product-filter")
-    public String filteredProducts(ProductDtoFilter productDtoFilter) {
-        List<ProductBasicDto> products = productService.filterProduct(productDtoFilter);
-        return "/products";
-    }
+//    @PostMapping("/product-filter")
+//    public String filteredProducts(ProductDtoFilter productDtoFilter) {
+//        List<ProductBasicDto> products = productService.filterProduct(productDtoFilter);
+//        return "/products";
+//    }
 }

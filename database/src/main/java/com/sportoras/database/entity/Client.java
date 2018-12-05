@@ -3,6 +3,7 @@ package com.sportoras.database.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -11,11 +12,11 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.time.LocalDate;
 
+@EqualsAndHashCode(of = "id")
 @ToString(exclude = {"rewiew"})
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "of")
 @Data
-@Builder
 @Entity
 @DiscriminatorValue("Users")
 public class Client extends User {

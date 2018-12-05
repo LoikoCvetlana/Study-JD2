@@ -7,13 +7,16 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @ToString(exclude = "material")
@@ -28,6 +31,7 @@ public class Product extends BaseEntity<Long> {
 
     private String name;
 
+    @Column(name = "article", unique = true)
     private String article;
 
     private String picture;
@@ -39,7 +43,11 @@ public class Product extends BaseEntity<Long> {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "material_id")
     )
-    private Set<Material> materials = new HashSet<>();
+    private List<Material> materials = new ArrayList<>();
+
+    public void addMaterial(Material material) {
+        this.materials.add(material);
+    }
 
     public Product(String name) {
         this.name = name;

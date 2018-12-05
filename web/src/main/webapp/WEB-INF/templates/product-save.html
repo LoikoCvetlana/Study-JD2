@@ -5,33 +5,29 @@
     <title>New Product</title>
 </head>
 <body>
-    <!--<div th:insert="~{headers::language}">-->
+<div th:insert="~{header}"></div>
 
     </div>
         <form th:action="@{/product-save}" th:method="post" th:object="${productCreateDto}">
             <div class="form-group">
-                <label for="name">
-                    <span>Name:</span>
+                <p><b>Наименование: </b><label for="name">
                     <input class="form-control" type="text" id="name" th:field="*{name}">
-                </label>
+                </label></p>
             </div>
             <div class="form-group">
-                <label for="article">
-                    <span>Article:</span>
+                <p><b>Артикль: </b> <label for="article">
                     <input class="form-control" type="text" id="article" th:field="*{article}">
-                </label>
+                </label></p>
             </div>
             <div class="form-group">
-                <label for="picture">
-                    <span>Picture:</span>
+                <p><b>Ссылка на фото: </b>  <label for="picture">
                     <input class="form-control" type="text" id="picture" th:field="*{picture}">
-                </label>
+                </label></p>
             </div>
             <div class="form-group">
-                <label for="value">
-                    <span>Value:</span>
+                <p><b>Стоимость с НДС: </b>  <label for="value">
                     <input class="form-control" type="number" id="value" th:field="*{value}">
-                </label>
+                </label></p>
             </div>
                 <!--<div th:each="material: ${materials}">-->
                     <!--<input type="checkbox" th:value="${material}" th:field="*{materials}">-->

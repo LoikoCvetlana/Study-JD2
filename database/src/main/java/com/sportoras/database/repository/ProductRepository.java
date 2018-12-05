@@ -17,4 +17,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     List<Product> findAllByNameBetweenOrderByValue(String name, double minValue, double maxValue, Pageable pageable);
 
     List<Product> findAll();
+
+    Product findByArticle (String article);
 }

@@ -1,6 +1,7 @@
 package com.sportoras.database.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+@Builder
 @Data
 @EqualsAndHashCode(of = "id")
 @AllArgsConstructor(staticName = "of")
@@ -37,7 +39,7 @@ public class User extends BaseEntity<Long> {
     private UserDateil userDateil;
 
     @Column(name = "Role", insertable = false, updatable = false)
-    private String Role;
+    private String role;
 
     public User(String email, String password, FullName fullName) {
         this.email = email;

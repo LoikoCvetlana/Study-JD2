@@ -3,17 +3,18 @@ package com.sportoras.database.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+@EqualsAndHashCode(of = "id")
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Builder
 @Entity
 @DiscriminatorValue("Admins")
 public class Admin extends User {

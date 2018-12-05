@@ -44,10 +44,9 @@ id      BIGSERIAL PRIMARY KEY,
 );
 
 
-CREATE TABLE product_material (
+CREATE TABLE oraz_storage.product_material (
   product_id  BIGINT REFERENCES product (id),
   material_id BIGINT REFERENCES material (id),
-  PRIMARY KEY (product_id, material_id)
 );
 
 

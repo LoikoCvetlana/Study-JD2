@@ -2,18 +2,15 @@ package com.sportoras.service.service;
 
 import com.sportoras.database.entity.Product;
 import com.sportoras.database.repository.ProductRepository;
-import com.sportoras.service.dto.ProductBasicDto;
-import com.sportoras.service.dto.ProductCreateDto;
-import com.sportoras.service.dto.ProductDtoFilter;
-import com.sportoras.service.dto.ProductFullDto;
+import com.sportoras.service.dto.productDto.ProductBasicDto;
+import com.sportoras.service.dto.productDto.ProductCreateDto;
+import com.sportoras.service.dto.productDto.ProductDtoFilter;
+import com.sportoras.service.dto.productDto.ProductFullDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,8 +25,8 @@ public class ProductService {
         return productRepository.findProductById(productId);
     }
 
-    public List<Product> findAll() {
-        return productRepository.findAll();
+    public Product findProductByArticle(String article) {
+        return productRepository.findByArticle(article);
     }
 
     public List<ProductBasicDto> filterProduct(ProductDtoFilter productDtoFilter) {
@@ -45,16 +42,24 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public ProductFullDto saveProduct(ProductCreateDto productCreateDto) {
         Product savedProduct = productRepository.save(
                 Product.builder()
                         .name(productCreateDto.getName())
                         .article(productCreateDto.getArticle())
                         .picture(productCreateDto.getPicture())
-                        .value(BigDecimal.valueOf(productCreateDto.getValue()))
-//                        .materials(Arrays.asList())
+                        .value(productCreateDto.getValue())
+//                        .materials(productCreateDto.getMaterials())
                         .build());
 
-        return new ProductFullDto(savedProduct.getId(), savedProduct.getName(), savedProduct.getArticle(), savedProduct.getPicture(), savedProduct.getValue().doubleValue(), savedProduct.getMaterials());
+        return ProductFullDto.builder()
+                .id(savedProduct.getId())
+                .name(savedProduct.getName())
+                .article(savedProduct.getArticle())
+                .picture(savedProduct.getPicture())
+                .value(savedProduct.getValue())
+                .materials(savedProduct.getMaterials())
+                .build();
     }
 }

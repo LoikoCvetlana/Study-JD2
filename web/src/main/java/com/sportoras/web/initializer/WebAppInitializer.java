@@ -2,6 +2,7 @@ package com.sportoras.web.initializer;
 
 import com.sportoras.database.configuration.DatabaseConfiguration;
 import com.sportoras.service.configuration.ServiceConfiguration;
+import com.sportoras.web.configuration.SecurityConfiguration;
 import com.sportoras.web.configuration.WebConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -14,7 +15,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {DatabaseConfiguration.class, ServiceConfiguration.class};
+        return new Class[] {DatabaseConfiguration.class, SecurityConfiguration.class, ServiceConfiguration.class};
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.sportoras.service.dto;
+package com.sportoras.service.dto.productDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

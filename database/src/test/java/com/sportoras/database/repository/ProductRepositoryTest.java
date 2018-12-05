@@ -41,12 +41,12 @@ public class ProductRepositoryTest {
         databaseHelper.prepareData();
     }
 
-    @Test
-    public void userRole() {
-       User user = userRepository.findByEmail("mail0");
-        System.out.println(user);
-        assertNotNull(user);
-    }
+//    @Test
+//    public void userRole() {
+//       User user = userRepository.findByEmail("mail0");
+//        System.out.println(user);
+//        assertNotNull(user);
+//    }
 
     @Test
     public void checkFindByName() {

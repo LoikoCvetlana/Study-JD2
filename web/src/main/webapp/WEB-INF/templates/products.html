@@ -5,13 +5,13 @@
     <title>Products</title>
 </head>
 <body>
-<!--<div th:insert="~{headers::language}">-->
-
+<div th:insert="~{header}"></div>
+<br>
 <div th:each="product: ${products}">
-    <p><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="100"></p>
+    <p><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="100"> <br>
     <a th:href="@{/product-info(id=${product.id})}" th:text="${product.name}+${product.article}">Product name</a>
-
-    <br>
+        <br> _______________________________________________________________________________________
+    </p>
 </div>
 </body>
 </html>
