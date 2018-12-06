@@ -14,6 +14,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Builder
 @Data
@@ -25,6 +26,9 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "Role")
 public class User extends BaseEntity<Long> {
+
+    @Column(name = "registration_date")
+    private LocalDate registrationDate;
 
     @Embedded
     private FullName fullName;

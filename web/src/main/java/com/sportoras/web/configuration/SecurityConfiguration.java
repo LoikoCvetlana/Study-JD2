@@ -29,14 +29,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
                 .antMatchers("/product-save")
                 .hasAnyAuthority("Admins")
-                .antMatchers("/login", "/products")
+                .antMatchers("/login", "/products", "/save-user")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/products", true)
+                .defaultSuccessUrl("/my-page", true)
                 .and()
                 .logout();
 

@@ -1,32 +1,23 @@
 package com.sportoras.database.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.time.LocalDate;
+
 
 @EqualsAndHashCode(of = "id")
-@ToString(exclude = {"rewiew"})
+@ToString
 @NoArgsConstructor
-@AllArgsConstructor(staticName = "of")
 @Data
 @Entity
 @DiscriminatorValue("Users")
 public class Client extends User {
 
-    @Column(name = "registration_date")
-    private LocalDate registrationDate;
-
-    public Client(String email, String password, LocalDate registrationDate, FullName fullName) {
+    public Client(String email, String password, FullName fullName) {
         super(email, password, fullName);
-        this.registrationDate = registrationDate;
     }
-
 }

@@ -21,4 +21,6 @@ public class UserFullDto {
     private String email;
     private UserDateil userDateil;
     private LocalDate registrationDate;
+    private String company;
+    private String position;
 }

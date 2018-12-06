@@ -15,5 +15,6 @@ public class UserDetailDto {
     private String company;
     private String phone;
     private String otherInformation;
+    private String position;
 }
 

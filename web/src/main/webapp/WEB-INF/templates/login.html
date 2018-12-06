@@ -6,6 +6,7 @@
 </head>
 <body>
 <div th:insert="~{header}"></div>
+<p th:if="${loginError}" class="error">Wrong user or password</p>
     <form th:action="@{/login}" th:method="post">
         <label for="username">
             <span th:text="#{user.email}">Email: </span>

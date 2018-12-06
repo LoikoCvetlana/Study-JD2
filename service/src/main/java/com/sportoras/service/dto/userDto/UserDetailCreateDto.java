@@ -15,5 +15,6 @@ public class UserDetailCreateDto {
     private String company;
     private String phone;
     private String otherInformation;
+    private String position;
 }
 

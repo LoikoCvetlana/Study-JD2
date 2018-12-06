@@ -26,5 +26,4 @@ public class UserCreateDto {
     private String email;
     private UserDateil userDateil;
     private LocalDate registrationDate;
-
 }

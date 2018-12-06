@@ -24,13 +24,14 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserRepository userRepository;
+
     public User findUserById(Long productId) {
         return userRepository.findUserById(productId);
     }
 
     public List<UserBasicDto> allUsers() {
         return userRepository.findAll().stream()
-                .map(it -> new UserBasicDto(it.getId(), it.getFullName(), it.getRole(), it.getUserDateil()))
+                .map(it -> new UserBasicDto(it.getId(), it.getFullName(), it.getRole(), it.getUserDateil(),it.getRegistrationDate()))
                 .collect(Collectors.toList());
     }
 

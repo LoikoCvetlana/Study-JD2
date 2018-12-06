@@ -8,13 +8,14 @@
 <div th:insert="~{header}"></div>
 
 <div>
+    <br>
     <p><b>Наименование: </b>
         <span id="name" th:text="${product.name}"></span>
         <span id="article" th:text="${product.article}"> Product Name</span></p>
 
     <p><b>Стоимость за единицу (с НДС): </b> <span id="value" th:text="${product.value}">Product Value</span></p>
 
-    <p><b>Фото: </b><br><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="300"></p>
+    <p><b>Фото: </b><br><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="350"></p>
 
     <p th:each="material: ${materials}" th:text="${material.name}">material</p>
 

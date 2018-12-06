@@ -49,17 +49,21 @@ public class DatabaseHelper {
         entityManager.persist(material2);
         entityManager.persist(material3);
 
-        Client rcop = new Client("mail0", "222", LocalDate.now(), FullName.of("Irina", "Nikolaevna"));
-        Client gocor = new Client("mail2", "111", LocalDate.now(), FullName.of("Ivan", "Nikiforovich"));
-        Admin iv = new Admin("mail", "password", "director", FullName.of("Irina", "Pshirkova"));
+        Client rcop = new Client("mail0", "222", FullName.of("Irina", "Nikolaevna"));
+        Client gocor = new Client("mail2", "111",  FullName.of("Ivan", "Nikiforovich"));
+        Admin iv = new Admin("mail", "password",  FullName.of("Irina", "Pshirkova"));
 
         entityManager.persist(rcop);
         entityManager.persist(gocor);
         entityManager.persist(iv);
 
-        entityManager.persist(new UserDateil("RCOP", "555 55 55", "375 29555 55 55",
+
+        entityManager.persist(new UserDateil("RCOP", "", "375 29555 55 55",
                 "Information1", rcop));
-        entityManager.persist(new UserDateil("GOCOR", "555 33 55",
+
+        entityManager.persist(new UserDateil("RCOP", "", "375 29555 55 55",
+                "Information1", rcop));
+        entityManager.persist(new UserDateil("GOCOR", "Manager",
                 "375 555 333 55", "Information2", gocor));
 
         entityManager.persist(new Rewiew(rcop, "Cool", LocalDate.now()));
