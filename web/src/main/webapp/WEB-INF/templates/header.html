@@ -50,7 +50,8 @@
 <!--<a href="${pageContext.request.contextPath}/user-save" class="btn btn-outline-secondary" role="button"><-->
 
 
-<a sec:authorize="hasRole('ADMINS')" th:href="@{/product-save}" class="btn btn-outline-secondary" role="button">Добавить продукт</a>
+<a sec:authorize="hasRole('ADMINS')" th:href="@{/product-save}" class="btn btn-secondary" role="button">
+    Добавить продукт</a>
 <br>
 <div th:fragment="logout" sec:authorize="isAuthenticated()">
     <form th:action="@{/logout}" th:method="post">

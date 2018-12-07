@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class UserCreateDto {
     private FullName fullName;
     private String password;
     private String email;
-    private UserDateil userDateil;
+//    private UserDateil userDateil;
     private LocalDate registrationDate;
+//    private String role;
 }

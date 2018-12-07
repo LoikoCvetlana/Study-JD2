@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,8 +25,9 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserRepository userRepository;
+//    private final PasswordEncoder passwordEncoder;
 
-    public User findUserById(Long productId) {
+      public User findUserById(Long productId) {
         return userRepository.findUserById(productId);
     }
 
@@ -35,6 +37,17 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+//    @Transactional
+//    public User registerNewUserAccount(UserCreateDto accountDto){
+//        User user = new User();
+//        user.setFullName(accountDto.getFullName());
+//        user.setRegistrationDate(LocalDate.now());
+//        user.setPassword(passwordEncoder.encode(accountDto.getPassword()));
+//        user.setEmail(accountDto.getEmail());
+//        user.setRole("User");
+//        return userRepository.save(user);
+//    }
+
     @Transactional
     public UserFullDto saveUser(UserCreateDto userCreateDto) {
         User sevedUser = userRepository.save(
@@ -42,7 +55,7 @@ public class UserService {
                         .fullName(userCreateDto.getFullName())
                         .email(userCreateDto.getEmail())
                         .password(userCreateDto.getPassword())
-                        .userDateil(userCreateDto.getUserDateil())
+                        .registrationDate(LocalDate.now())
                         .build());
 
         return UserFullDto.builder()

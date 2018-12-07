@@ -38,6 +38,6 @@ public class RewiewRepositoryTest {
     public void checkFilters() {
         List<Rewiew> rewiews = rewiewRepository.filtersRewiew
                 (LocalDate.of(2017, 01, 01), "mail0", "RCOP");
-        assertThat(rewiews, hasSize(2));
+        assertThat(rewiews, hasSize(4));
     }
 }

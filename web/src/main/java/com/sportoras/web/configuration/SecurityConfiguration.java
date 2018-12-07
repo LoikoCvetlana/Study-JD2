@@ -16,6 +16,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+//
+//    @Bean
+//    public DaoAuthenticationProvider authProvider() {
+//        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+//        authProvider.setUserDetailsService(userDetailsService);
+//        authProvider.setPasswordEncoder(encoder());
+//        return authProvider;
+//    }
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.authenticationProvider(authProvider());
+//    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -29,14 +47,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
                 .antMatchers("/product-save")
                 .hasAnyAuthority("Admins")
-                .antMatchers("/login", "/products", "/save-user")
+                .antMatchers("/login", "/products", "/user-save")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/my-page", true)
+                .defaultSuccessUrl("/products", true)
                 .and()
                 .logout();
 

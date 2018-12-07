@@ -10,9 +10,5 @@ import org.springframework.context.annotation.Import;
 @Import(DatabaseConfiguration.class)
 public class ServiceConfiguration {
 
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
 
 }
