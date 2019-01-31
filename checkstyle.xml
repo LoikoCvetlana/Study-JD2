@@ -7,17 +7,17 @@
 
   Checkstyle configuration that checks the sun coding conventions from:
 
-    - the Java Language Specification at
+     - the Java Language Specification at
       http://java.sun.com/docs/books/jls/second_edition/html/index.html
 
-    - the Sun Code Conventions at http://java.sun.com/docs/codeconv/
+     - the Sun Code Conventions at http://java.sun.com/docs/codeconv/
 
-    - the Javadoc guidelines at
+     - the Javadoc guidelines at
       http://java.sun.com/j2se/javadoc/writingdoccomments/index.html
 
-    - the JDK Api documentation http://java.sun.com/j2se/docs/api/index.html
+     - the JDK Api documentation http://java.sun.com/j2se/docs/api/index.html
 
-    - some best practices
+     - some best practices
 
   Checkstyle is very configurable. Be sure to read the documentation at
   http://checkstyle.sf.net (or in your downloaded distribution).

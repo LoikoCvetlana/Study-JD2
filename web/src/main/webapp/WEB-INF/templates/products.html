@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<!--<div th:insert="~{headers::language}">-->
+
+<div th:each="product: ${products}">
+    <p><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="100"></p>
+    <a th:href="@{/product-info(id=${product.id})}" th:text="${product.name}+${product.article}">Product name</a>
+
+    <br>
+</div>
+</body>
+</html>
